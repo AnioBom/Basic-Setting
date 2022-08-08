@@ -27,13 +27,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func moveSlider() {
+        self.view.backgroundColor = UIColor(red:CGFloat (redColor.value), green:CGFloat(greenColor.value), blue: CGFloat(blueColor.value), alpha: 1)
+        
         numberChangeRed.text = String(redColor.value)
         numberChangeGreen.text = String(greenColor.value)
         numberChangeBlue.text = String(blueColor.value)
         
        /* view.backgroundColor = view.backgroundColor?.withAlphaComponent(CGFloat(redColor.value, greenColor.value, blueColor.value))
-        */
-       /* view.backgroundColor = UIColor(red: , green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
         */
     }
     
