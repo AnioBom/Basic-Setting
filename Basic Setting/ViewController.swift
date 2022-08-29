@@ -7,56 +7,100 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol SettingViewControllerDelegate {
+    func newColor(_color: UIColor)
+}
+
+final class ViewController: UIViewController {
     
     @IBOutlet var mainView: UIView!
     
-    @IBOutlet var redColor: UISlider!
-    @IBOutlet var greenColor: UISlider!
-    @IBOutlet var blueColor: UISlider!
+    @IBOutlet var redSlider: UISlider!
+    @IBOutlet var greenSlider: UISlider!
+    @IBOutlet var blueSlider: UISlider!
     
-    @IBOutlet var numberChangeRed: UILabel!
-    @IBOutlet var numberChangeGreen: UILabel!
-    @IBOutlet var numberChangeBlue: UILabel!
+    @IBOutlet var redLabel: UILabel!
+    @IBOutlet var greenLabel: UILabel!
+    @IBOutlet var blueLabel: UILabel!
     
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
+    
+    private var settingVC: ColorViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Screen settings"
+        
         descriptionColorView()
+        
+        redSlider.minimumTrackTintColor = .red
+        greenSlider.minimumTrackTintColor = .green
+        
+        setColor()
+        setValue(for: redLabel, greenLabel, blueLabel)
     }
     
-    @IBAction func moveSlider() {
-        self.mainView.backgroundColor = UIColor(red:CGFloat (redColor.value), green:CGFloat(greenColor.value), blue: CGFloat(blueColor.value), alpha: 1)
+    @IBAction func goSlider(_ sender: UISlider) {
         
-        numberChangeRed.text = String(redColor.value)
-        numberChangeGreen.text = String(greenColor.value)
-        numberChangeBlue.text = String(blueColor.value)
+        setColor()
+        
+        switch sender {
+        case redSlider: setValue(for: redLabel)
+        case greenSlider: setValue(for: greenLabel)
+        default: setValue(for: blueLabel)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let colorVC = segue.destination as? ColorViewController else { return }
+        colorVC.delegate = self
+        colorVc.mainView = view.backgroundColor
+    }
+    
+    //MARK: - Done and Save Button
+    
+    @IBAction func doneAndSaveSettingDetail(segue: UIStoryboardSegue) {
         
     }
     
     
-    
-    //MARK: - descriptions objects
+    //MARK: - Privat metodes
     private func descriptionColorView() {
-        mainView.layer.cornerRadius = 10
+        mainView.layer.cornerRadius = 15
     }
     
-    private func setupSlider() {
-        
-        redColor.value = 50
-        redColor.maximumValue = 0
-        redColor.minimumValue = 100
-        
-        greenColor.value = 50
-        greenColor.maximumValue = 0
-        greenColor.minimumValue = 100
-        
-        blueColor.value = 50
-        blueColor.maximumValue = 0
-        blueColor.minimumValue = 100
-        
+    private func setColor() {
+        mainView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
     }
-
+    
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redLabel:
+                label.text = string(from: redSlider)
+            case greenLabel:
+                label.text = string(from: greenSlider)
+            default:
+                label.text = string(from: blueSlider)
+            }
+        }
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
+    }
 }
 
+//MARK: - Extension
+
+extension ViewController: SettingViewControllerDelegate {
+    func setColor()
+}
