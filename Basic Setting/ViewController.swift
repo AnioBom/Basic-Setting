@@ -7,11 +7,9 @@
 
 import UIKit
 
-protocol SettingViewControllerDelegate {
-    func newColor(_color: UIColor)
-}
-
 final class ViewController: UIViewController {
+    
+    //MARK: - IB Outlet
     
     @IBOutlet var mainView: UIView!
     
@@ -27,7 +25,12 @@ final class ViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
     
-    private var settingVC: ColorViewController!
+    //MARK: - Public Properties
+    
+    var delegate: SettingViewControllerDelegate!
+    var viewColor: UIColor!
+    
+    //MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +39,16 @@ final class ViewController: UIViewController {
         
         descriptionColorView()
         
+        mainView.backgroundColor = viewColor
+        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         
         setColor()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
+    
+    //MARK: - IB Action
     
     @IBAction func goSlider(_ sender: UISlider) {
         
@@ -54,20 +61,15 @@ final class ViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let colorVC = segue.destination as? ColorViewController else { return }
-        colorVC.delegate = self
-        colorVc.mainView = view.backgroundColor
-    }
     
     //MARK: - Done and Save Button
     
     @IBAction func doneAndSaveSettingDetail(segue: UIStoryboardSegue) {
-        
+        delegate?.setColor(_color: viewColor)
     }
     
     
-    //MARK: - Privat metodes
+    //MARK: - Private Methods
     private func descriptionColorView() {
         mainView.layer.cornerRadius = 15
     }
@@ -99,8 +101,3 @@ final class ViewController: UIViewController {
     }
 }
 
-//MARK: - Extension
-
-extension ViewController: SettingViewControllerDelegate {
-    func setColor()
-}

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		046B993B28BB86A4006CD56D /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B993A28BB86A4006CD56D /* ColorViewController.swift */; };
 		046B993D28BB879A006CD56D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B993C28BB879A006CD56D /* StartViewController.swift */; };
 		04EC6FA4289FD92C0093AF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC6FA3289FD92C0093AF80 /* AppDelegate.swift */; };
 		04EC6FA6289FD92C0093AF80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC6FA5289FD92C0093AF80 /* SceneDelegate.swift */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		046B993A28BB86A4006CD56D /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		046B993C28BB879A006CD56D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		04EC6FA0289FD92C0093AF80 /* Basic Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EC6FA3289FD92C0093AF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 				04EC6FA5289FD92C0093AF80 /* SceneDelegate.swift */,
 				046B993C28BB879A006CD56D /* StartViewController.swift */,
 				04EC6FA7289FD92C0093AF80 /* ViewController.swift */,
-				046B993A28BB86A4006CD56D /* ColorViewController.swift */,
 				04EC6FA9289FD92C0093AF80 /* Main.storyboard */,
 				04EC6FAC289FD92D0093AF80 /* Assets.xcassets */,
 				04EC6FAE289FD92D0093AF80 /* LaunchScreen.storyboard */,
@@ -147,7 +144,6 @@
 				046B993D28BB879A006CD56D /* StartViewController.swift in Sources */,
 				04EC6FA8289FD92C0093AF80 /* ViewController.swift in Sources */,
 				04EC6FA4289FD92C0093AF80 /* AppDelegate.swift in Sources */,
-				046B993B28BB86A4006CD56D /* ColorViewController.swift in Sources */,
 				04EC6FA6289FD92C0093AF80 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
