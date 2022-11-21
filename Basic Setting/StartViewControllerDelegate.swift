@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol SettingViewControllerDelegate {
-    func setColor(_color: UIColor)
+protocol StartViewControllerDelegate {
+    func setColor(_ color: UIColor)
 }
 
 final class StartViewController: UIViewController {
@@ -23,7 +23,7 @@ final class StartViewController: UIViewController {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextVC = segue.destination as? ViewController else { return }
+        guard let nextVC = segue.destination as? ColorViewController else { return }
         nextVC.delegate = self
         nextVC.viewColor = view.backgroundColor
     }
@@ -32,9 +32,9 @@ final class StartViewController: UIViewController {
 
 //MARK: - Extention
 
-extension StartViewController: SettingViewControllerDelegate {
-    func setColor(_color: UIColor) {
-        
+extension StartViewController: StartViewControllerDelegate {
+    func setColor(_ color: UIColor) {
+        view.backgroundColor = color
     }
 }
 

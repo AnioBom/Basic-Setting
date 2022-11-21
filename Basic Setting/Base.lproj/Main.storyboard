@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SE5-lk-QaQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SE5-lk-QaQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,23 +31,23 @@
             </objects>
             <point key="canvasLocation" x="1028" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Basic_Setting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ColorViewController" customModule="Basic_Setting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IfD-Vg-FFc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="SdE-Ki-7B3">
-                                <rect key="frame" x="16" y="94" width="382" height="428"/>
+                                <rect key="frame" x="16" y="98" width="382" height="464"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n56-Ic-5Xs">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="167"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="203"/>
                                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPf-bx-1hP">
-                                        <rect key="frame" x="0.0" y="256" width="382" height="172"/>
+                                        <rect key="frame" x="0.0" y="292" width="382" height="172"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mcY-ha-0R5">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="172"/>
@@ -158,13 +159,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneAndSaveSettingDetailWithSegue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zph-lH-tiL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xRQ-Y4-cFG"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SdE-Ki-7B3" firstAttribute="leading" secondItem="xRQ-Y4-cFG" secondAttribute="leading" constant="16" id="f4R-SZ-16f"/>
-                            <constraint firstItem="xRQ-Y4-cFG" firstAttribute="bottom" secondItem="SdE-Ki-7B3" secondAttribute="bottom" constant="340" id="gdu-7Q-iqD"/>
+                            <constraint firstItem="xRQ-Y4-cFG" firstAttribute="bottom" secondItem="SdE-Ki-7B3" secondAttribute="bottom" constant="300" id="gdu-7Q-iqD"/>
                             <constraint firstItem="sat-hP-Xnk" firstAttribute="centerX" secondItem="IfD-Vg-FFc" secondAttribute="centerX" id="iNs-fM-TRh"/>
                             <constraint firstItem="xRQ-Y4-cFG" firstAttribute="trailing" secondItem="SdE-Ki-7B3" secondAttribute="trailing" constant="16" id="lqF-J4-nae"/>
                             <constraint firstItem="SdE-Ki-7B3" firstAttribute="top" secondItem="xRQ-Y4-cFG" secondAttribute="top" constant="50" id="sFr-aC-ezN"/>
@@ -194,7 +198,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SE5-lk-QaQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QNL-J7-fDr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
